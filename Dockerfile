@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk add --no-cache openjdk8-jre curl jq
+RUN apk add --no-cache openjdk8-jre-base curl jq
 RUN adduser minecraft -u 1000 -D -H
 COPY entrypoint.sh /entrypoint.sh
 WORKDIR /minecraft
