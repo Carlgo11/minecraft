@@ -1,4 +1,5 @@
 #!/bin/sh
+umask 0077
 echo "eula=true" > eula.txt;
 if [ ! -f papermc.jar ]; then
 echo "Downloading PaperMC..."
