@@ -30,5 +30,5 @@ jobs:
           platforms: linux/arm,linux/arm/v6,linux/arm/v7,linux/arm64,linux/amd64,linux/386
           push: true
           tags: |
-            ${{ GITHUB_REPOSITORY }}:latest
-            ghcr.io/${{ GITHUB_REPOSITORY }}:latest
+            ${{ GITHUB.REPOSITORY }}:latest
+            ghcr.io/${{ GITHUB.REPOSITORY }}:latest
