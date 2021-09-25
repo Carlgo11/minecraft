@@ -4,5 +4,5 @@ RUN adduser minecraft -u 1000 -D -H
 COPY entrypoint.sh /entrypoint.sh
 USER minecraft
 WORKDIR /minecraft
-CMD /entrypoint.sh
+ENTRYPOINT /entrypoint.sh
 EXPOSE 25565
