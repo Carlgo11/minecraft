@@ -1,7 +1,6 @@
 FROM alpine
-RUN apk --no-cache --purge add curl jq git
+RUN apk --no-cache --purge add curl jq
 RUN apk --no-cache --purge --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community add openjdk17-jre-headless
-RUN git clone https://git.openjdk.java.net/jdk/
 RUN adduser -D -H -u 1000 minecraft
 COPY --chown=1000 entrypoint.sh /entrypoint.sh
 RUN mkdir /minecraft;chown 1000:1000 /minecraft -R
