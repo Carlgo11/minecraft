@@ -1,11 +1,10 @@
-FROM openjdk:17-alpine
-RUN apk --force-refresh --no-cache --purge -f -u add curl jq
-RUN adduser minecraft -u 1000 -D -H
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-RUN mkdir /minecraft; chown 1000 /minecraft -R
-USER minecraft
+FROM alpine
+RUN apk --no-cache --purge add curl jq git
+RUN apk --no-cache --purge --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community add openjdk17-jre-headless
+RUN git clone https://git.openjdk.java.net/jdk/
+RUN adduser -D -H -u 1000 minecraft
+COPY --chown=1000 entrypoint.sh /entrypoint.sh
+RUN mkdir /minecraft;chown 1000:1000 /minecraft -R
+USER 1000
 WORKDIR /minecraft
-RUN ls -la
-ENTRYPOINT /entrypoint.sh
-EXPOSE 25565
+ENTRYPOINT /entrypoint.sh;java -jar papermc.jar "$@"

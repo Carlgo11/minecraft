@@ -20,5 +20,3 @@ if ([ ! -f "papermc.jar" ] || [ "$(cat sha.txt)" != "${sha}" ]); then
   echo "${sha}" > "sha.txt"
   echo "eula=true" > "eula.txt"
 fi
-
-java -jar papermc.jar "$@"
