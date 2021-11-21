@@ -15,8 +15,7 @@ jobs:
             ${{ GITHUB.REPOSITORY }}
             ghcr.io/${{ GITHUB.REPOSITORY }}
           tags: |
-            type=ref,event=branch
-            type=ref,event=tag
+            type=ref,event=branch,pattern=dev
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
