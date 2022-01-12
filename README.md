@@ -1,10 +1,9 @@
 # Minecraft Docker Container
+[![GPL-3.0](https://img.shields.io/github/license/carlgo11/minecraft?style=for-the-badge)][license]
+[![GitHub Packages](https://img.shields.io/github/v/release/carlgo11/minecraft?logo=github&style=for-the-badge)][github_packages]
+[![Docker Hub](https://img.shields.io/github/v/release/carlgo11/minecraft?logo=docker&logoColor=fff&style=for-the-badge)][docker_hub]
 
-[![GitHub](https://img.shields.io/github/license/carlgo11/minecraft?style=for-the-badge)](LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Carlgo11/Minecraft/Docker%20Build%20Test?style=for-the-badge)](https://github.com/Carlgo11/minecraft/actions)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/carlgo11/minecraft?style=for-the-badge)](https://hub.docker.com/r/carlgo11/minecraft)
-
-This is a containerized way to run a Minecraft server securly and always up to date.  
+This is a containerized way to run a Minecraft server securly and always up to date.
 The Minecraft container runs PaperMC, a Spigot fork with performance improvements.
 
 ## Usage
@@ -35,13 +34,13 @@ services:
   minecraft:
     image: carlgo11/minecraft
     restart: unless-stopped
+    read_only: true
+    stdin_open: true
+    tty: true
     ports:
       - '25565:25565'
     volumes:
       - './minecraft:/minecraft'
-    read_only: true
-    tty: true
-    stdin_open: true
 
 ```
 
@@ -62,3 +61,7 @@ docker-compose up -d
 |name|description|
 |----|-----------|
 |MC_VERSION|Desired Minecraft version (+v1.8.8 supported)|
+
+[license]: LICENSE
+[github_packages]: https://github.com/Carlgo11/guest-portal/pkgs/container/guest-portal
+[docker_hub]: https://hub.docker.com/r/carlgo11/minecraft/tags
