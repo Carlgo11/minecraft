@@ -22,7 +22,7 @@ To start a server without access to the console, run:
 docker run -p 25565:25565 -v ./minecraft:/minecraft -d carlgo11/minecraft
 ```
 
-The flag `--read-only ` can also be added for extra security.
+The flag `--read-only` can also be added for extra security.
 
 ### Docker-Compose
 
@@ -41,6 +41,8 @@ services:
       - '25565:25565'
     volumes:
       - './minecraft:/minecraft'
+    tmpfs:
+      - '/tmp/:exec'
 
 ```
 
